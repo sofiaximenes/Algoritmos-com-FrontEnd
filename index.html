@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funções JavaScript</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Funções JavaScript</h1>
+        
+        <div class="section">
+            <h2>Verificar se é primo:</h2>
+            <p>Insira um número e clique no botão para verificar se é primo.</p>
+            <div class="result-container">
+                <input type="number" id="inputPrimo" placeholder="Número">
+                <button class="button" onclick="verificarPrimo()">Verificar</button>
+                <span id="resultadoPrimo" class="result"></span>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Somatório:</h2>
+            <p>Insira os números separados por vírgula e clique no botão para calcular o somatório.</p>
+            <div class="result-container">
+                <input type="text" id="inputSomatorio" placeholder="Ex: 1, 2, 3, 4, 5">
+                <button class="button" onclick="calcularSomatorio()">Calcular</button>
+                <span id="resultadoSomatorio" class="result"></span>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Fibonacci:</h2>
+            <p>Insira o número de termos desejados e clique no botão para calcular a sequência de Fibonacci.</p>
+            <div class="result-container">
+                <input type="number" id="inputFibonacci" placeholder="Número de termos">
+                <button class="button" onclick="calcularFibonacci()">Calcular</button>
+                <span id="resultadoFibonacci" class="result"></span>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>MDC:</h2>
+            <p>Insira dois números separados por vírgula e clique no botão para calcular o MDC (Máximo Divisor Comum).</p>
+            <div class="result-container">
+                <input type="text" id="inputMDC" placeholder="Ex: 36, 48">
+                <button class="button" onclick="calcularMDC()">Calcular</button>
+                <span id="resultadoMDC" class="result"></span>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Quicksort:</h2>
+            <p>Insira os números separados por vírgula e clique no botão para ordenar o array usando o algoritmo Quicksort.</p>
+            <div class="result-container">
+                <input type="text" id="inputQuicksort" placeholder="Ex: 6, 1, 8, 4, 9, 2, 5">
+                <button class="button" onclick="ordenarArray()">Ordenar</button>
+                <span id="resultadoQuicksort" class="result"></span>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Contar quantidade de inteiros:</h2>
+            <p>Insira os números separados por vírgula e clique no botão para contar a quantidade de números inteiros no array.</p>
+            <div class="result-container">
+                <input type="text" id="inputContarInteiros" placeholder="Ex: 1, 2, 3, 4, 5, -3">
+                <button class="button" onclick="contarInteiros()">Calcular</button>
+                <span id="resultadoContagem" class="result"></span>
+            </div>
+        </div>
+        <!-- Adicione seções para outras funções aqui -->
+
+    </div>
+
+    <script src="Algoritmos.js"></script>
+</body>
+
+<div class="section" id="code-link">
+    <p><a href="https://replit.com/@OtavioDantas1/AlgoritmosJS#script.js" target="_blank">Código em JavaScript</a></p>
+    <p><a href="https://replit.com/@OtavioDantas1/AlgoritmosJava#Main.java" target="_blank">Código em Java</a></p>
+</div>
+
+</html>
+
+
+
+<script>
+
+function verificarPrimo() {
+    const inputPrimo = parseInt(document.getElementById("inputPrimo").value);
+    
+    if (isNaN(inputPrimo) || inputPrimo <= 1) {
+        document.getElementById("resultadoPrimo").textContent = "Insira um número inteiro maior que 1.";
+        return;
+    }
+    
+    const resultado = isPrime(inputPrimo) ? `${inputPrimo} é primo.` : `${inputPrimo} não é primo.`;
+    document.getElementById("resultadoPrimo").textContent = resultado;
+}
+
+function calcularSomatorio() {
+    const inputSomatorio = document.getElementById("inputSomatorio").value;
+    const valores = inputSomatorio.split(',').map(Number)
+    const resultadoSoma = somatorio(valores);
+    document.getElementById("resultadoSomatorio").textContent = `O somatório é: ${resultadoSoma}`;
+}
+
+function calcularFibonacci() {
+    const inputFibonacci = parseInt(document.getElementById("inputFibonacci").value);
+    if (isNaN(inputFibonacci) || inputFibonacci <= 0) {
+        document.getElementById("resultadoFibonacci").textContent = "Insira um número válido.";
+        return;
+    }
+    
+    let resultado = "Fibonacci: ";
+    for (let i = 0; i < inputFibonacci; i++) {
+        resultado += fibonacci(i) + " ";
+    }
+    
+    document.getElementById("resultadoFibonacci").textContent = resultado;
+}
+
+function calcularMDC() {
+    const inputMDC = document.getElementById("inputMDC").value;
+    const valores = inputMDC.split(',').map(Number);
+    
+    if (valores.length !== 2 || isNaN(valores[0]) || isNaN(valores[1]) || valores[1] === 0) {
+        document.getElementById("resultadoMDC").textContent = "Insira dois números válidos (diferentes de zero) separados por vírgula.";
+        return;
+    }
+    
+    const resultadoMDC = mdc(valores[0], valores[1]);
+    document.getElementById("resultadoMDC").textContent = `O MDC é: ${resultadoMDC}`;
+}
+
+function ordenarArray() {
+    const inputQuicksort = document.getElementById("inputQuicksort").value;
+    const valores = inputQuicksort.split(',').map(Number);
+
+    if (valores.some(isNaN)) {
+        document.getElementById("resultadoQuicksort").textContent = "Insira valores numéricos separados por vírgula.";
+        return;
+    }
+
+    const arrayOrdenado = quicksort(valores);
+    document.getElementById("resultadoQuicksort").textContent = "Array ordenado: " + arrayOrdenado.join(", ");
+}
+
+function contarInteiros() {
+    const inputContarInteiros = document.getElementById("inputContarInteiros").value;
+    const valores = inputContarInteiros.split(',').map(Number);
+
+    const numerosInteiros = valores.filter(Number.isInteger).length;
+
+    document.getElementById("resultadoContagem").textContent = `O array contém ${numerosInteiros} números inteiros.`;
+}
+
+
+</script>

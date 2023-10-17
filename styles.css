@@ -1,0 +1,80 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+    color: #0074cc;
+}
+
+.section {
+    margin-top: 20px;
+}
+
+.button {
+    background-color: #0074cc;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    margin-right: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: #005aaa;
+}
+
+.result {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+/* Estilos anteriores */
+
+.result-container {
+    display: flex;
+    align-items: center;
+}
+
+.result {
+    border: 1px solid #0074cc;
+    padding: 5px 10px;
+    margin-left: 10px;
+    border-radius: 5px;
+    background-color: #f0f0f0;
+    color: #0074cc;
+    font-weight: bold;
+    width: 50%; /* Aumenta o tamanho do quadrado para ocupar todo o container */
+    min-height: 18px; /* Define uma altura mínima */
+}
+
+.button {
+
+    margin-left: 20px;
+}
+
+#code-link {
+    bottom: 0;
+    right: 0;
+    padding: 10px;
+    background-color: #0074cc;
+    color: #fff;
+    border-top-left-radius: 5px;
+    text-decoration: none;
+}
+
+
+
+
