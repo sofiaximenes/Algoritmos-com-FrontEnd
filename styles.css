@@ -15,7 +15,7 @@ body {
 }
 
 h1 {
-    color: #0074cc;
+    color: #10522c;
 }
 
 .section {
@@ -23,7 +23,7 @@ h1 {
 }
 
 .button {
-    background-color: #0074cc;
+    background-color: #1d490b;
     color: #ffffff;
     border: none;
     padding: 10px 20px;
@@ -33,7 +33,7 @@ h1 {
 }
 
 .button:hover {
-    background-color: #005aaa;
+    background-color: #09300d;
 }
 
 .result {
@@ -49,12 +49,12 @@ h1 {
 }
 
 .result {
-    border: 1px solid #0074cc;
+    border: 1px solid #2d2e2e;
     padding: 5px 10px;
     margin-left: 10px;
     border-radius: 5px;
     background-color: #f0f0f0;
-    color: #0074cc;
+    color: #3c3d3d;
     font-weight: bold;
     width: 50%; /* Aumenta o tamanho do quadrado para ocupar todo o container */
     min-height: 18px; /* Define uma altura mínima */
@@ -69,7 +69,7 @@ h1 {
     bottom: 0;
     right: 0;
     padding: 10px;
-    background-color: #0074cc;
+    background-color: #222425;
     color: #fff;
     border-top-left-radius: 5px;
     text-decoration: none;
